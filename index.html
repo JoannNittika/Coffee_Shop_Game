@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chai &amp; Crema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="sign">
+    <div>
+      <h1>Coffee House</h1>
+      <div class="street">Hardware Lane · Melbourne · 5-day challenge</div>
+    </div>
+    <div class="goalbox" aria-live="polite">
+      <div class="row"><span>Cash in the till</span><b id="cashTxt">$100</b></div>
+      <div class="bar" id="goalBar"><i></i></div>
+      <div class="row"><span id="goalTxt">Goal: $1,000 by Friday close</span><span id="dayTxt">Day 1 of 5</span></div>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- ======== SCENE ======== -->
+    <section class="scene" aria-label="Café scene">
+      <svg viewBox="0 0 480 330" role="img" aria-label="Joann the barista behind the counter of her laneway café">
+        <defs>
+          <pattern id="bricks" width="40" height="20" patternUnits="userSpaceOnUse">
+            <rect width="40" height="20" fill="#8a3a28"/>
+            <rect x="1" y="1" width="38" height="8" rx="1" fill="#9c4430"/>
+            <rect x="-19" y="11" width="38" height="8" rx="1" fill="#93402d"/>
+            <rect x="21" y="11" width="38" height="8" rx="1" fill="#a2482f"/>
+          </pattern>
+          <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2c3a4a"/><stop offset="1" stop-color="#55606b"/>
+          </linearGradient>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6b4a33"/><stop offset="1" stop-color="#4a3222"/>
+          </linearGradient>
+          <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#9aa3ab"/><stop offset=".5" stop-color="#dfe4e8"/><stop offset="1" stop-color="#8b949c"/>
+          </linearGradient>
+        </defs>
+
+        <!-- wall + window -->
+        <rect width="480" height="330" fill="url(#bricks)"/>
+        <g id="windowG">
+          <rect x="300" y="18" width="160" height="118" rx="4" fill="#1b2026"/>
+          <rect id="sky" x="306" y="24" width="148" height="106" fill="url(#dusk)"/>
+          <!-- skyline -->
+          <path d="M306 130 V98 h14 v-14 h12 v22 h10 v-34 h16 v40 h12 v-20 h14 v28 h10 v-46 h18 v52 h12 v-18 h10 v24 h4 v-0 V130 Z" fill="#1f262d" opacity=".85"/>
+          <g id="wxLayer"></g>
+          <line x1="380" y1="24" x2="380" y2="130" stroke="#1b2026" stroke-width="4"/>
+          <line x1="306" y1="77" x2="454" y2="77" stroke="#1b2026" stroke-width="4"/>
+        </g>
+
+        <!-- festoon lights (night market) -->
+        <g id="festoon" style="display:none">
+          <path d="M0 8 Q120 40 240 10 T480 12" fill="none" stroke="#1b1b1b" stroke-width="1.5"/>
+          <g id="bulbs"></g>
+        </g>
+
+        <!-- chalkboard menu -->
+        <g>
+          <rect x="18" y="16" width="168" height="118" rx="6" fill="#4a3222"/>
+          <rect x="24" y="22" width="156" height="106" rx="3" fill="#20262b"/>
+          <text x="102" y="46" text-anchor="middle" font-family="Caveat, cursive" font-weight="700" font-size="20" fill="#f1ece1">Today's brew</text>
+          <line x1="44" y1="54" x2="160" y2="54" stroke="#f1ece1" stroke-opacity=".35" stroke-dasharray="3 4"/>
+          <text x="34" y="80" font-family="Caveat, cursive" font-weight="600" font-size="19" fill="#f1ece1">Flat white</text>
+          <text id="menuPrice" x="172" y="80" text-anchor="end" font-family="Caveat, cursive" font-weight="700" font-size="22" fill="#e7b77a">$3.00</text>
+          <text x="34" y="106" font-family="Caveat, cursive" font-weight="600" font-size="16" fill="#b9b3a7">Cups ready:</text>
+          <text id="menuCups" x="172" y="106" text-anchor="end" font-family="Caveat, cursive" font-weight="700" font-size="19" fill="#f1ece1">100</text>
+        </g>
+
+        <!-- Joann -->
+        <g id="joann" transform="translate(0,0)">
+          <!-- hair back -->
+          <path d="M262 112 Q258 168 270 200 L330 200 Q342 168 338 112 Z" fill="#1c1412"/>
+          <!-- body / shirt -->
+          <path d="M248 300 Q250 222 300 214 Q350 222 352 300 Z" fill="#2f5d47"/>
+          <!-- apron -->
+          <path d="M272 300 L274 236 Q300 244 326 236 L328 300 Z" fill="#e7b77a"/>
+          <path d="M276 236 Q286 222 290 214 M324 236 Q314 222 310 214" stroke="#c99a5e" stroke-width="3" fill="none"/>
+          <circle cx="300" cy="262" r="9" fill="#c99a5e"/>
+          <text x="300" y="266" text-anchor="middle" font-family="Shrikhand, serif" font-size="9" fill="#e7b77a">C</text>
+          <!-- neck -->
+          <rect x="290" y="186" width="20" height="30" rx="8" fill="#7a4b30"/>
+          <!-- head -->
+          <ellipse cx="300" cy="150" rx="33" ry="38" fill="#8a5a3b"/>
+          <!-- ears + gold studs -->
+          <ellipse cx="267" cy="154" rx="5" ry="8" fill="#7a4b30"/>
+          <ellipse cx="333" cy="154" rx="5" ry="8" fill="#7a4b30"/>
+          <circle cx="267" cy="164" r="2.6" fill="#e2b33c"/>
+          <circle cx="333" cy="164" r="2.6" fill="#e2b33c"/>
+          <!-- hair top + bun -->
+          <circle cx="300" cy="100" r="17" fill="#1c1412"/>
+          <path d="M266 150 Q262 110 300 108 Q340 110 334 150 Q330 128 312 124 Q296 132 278 128 Q268 136 266 150 Z" fill="#1c1412"/>
+          <path d="M290 98 Q300 92 310 98" stroke="#3a2a24" stroke-width="2" fill="none"/>
+          <!-- face -->
+          <path id="browL" d="M281 140 Q287 136 293 139" stroke="#1c1412" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path id="browR" d="M307 139 Q313 136 319 140" stroke="#1c1412" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <ellipse id="eyeL" cx="287" cy="150" rx="3.4" ry="4" fill="#1c1412"/>
+          <ellipse id="eyeR" cx="313" cy="150" rx="3.4" ry="4" fill="#1c1412"/>
+          <circle cx="288.2" cy="148.6" r="1.1" fill="#fff"/>
+          <circle cx="314.2" cy="148.6" r="1.1" fill="#fff"/>
+          <ellipse cx="279" cy="164" rx="6" ry="3.5" fill="#b0603f" opacity=".45"/>
+          <ellipse cx="321" cy="164" rx="6" ry="3.5" fill="#b0603f" opacity=".45"/>
+          <path d="M300 152 Q297 162 301 164" stroke="#6b3f27" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path id="mouth" d="M289 172 Q300 182 311 172" stroke="#5a2a1c" stroke-width="2.6" fill="#5a2a1c" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- arm holding cup -->
+          <path d="M346 236 Q370 250 360 214" stroke="#2f5d47" stroke-width="16" fill="none" stroke-linecap="round"/>
+          <circle cx="360" cy="210" r="8" fill="#8a5a3b"/>
+          <path d="M352 186 h18 l-2 22 h-14 z" fill="#f1ece1"/>
+          <rect x="351" y="184" width="20" height="5" rx="2" fill="#2a2a2a"/>
+          <rect x="354" y="194" width="14" height="6" fill="#a5452f"/>
+          <path class="steam" d="M357 180 q-4 -6 0 -12 q4 -6 0 -12" stroke="#f1ece1" stroke-width="1.6" fill="none" opacity=".6"/>
+          <path class="steam" style="animation-delay:1.2s" d="M365 180 q-4 -6 0 -12 q4 -6 0 -12" stroke="#f1ece1" stroke-width="1.6" fill="none" opacity=".6"/>
+        </g>
+
+        <!-- counter -->
+        <rect x="0" y="252" width="480" height="78" fill="url(#wood)"/>
+        <rect x="0" y="246" width="480" height="10" fill="#2a1d14"/>
+        <!-- espresso machine -->
+        <g>
+          <rect x="384" y="190" width="84" height="58" rx="6" fill="url(#steel)"/>
+          <rect x="390" y="196" width="72" height="12" rx="3" fill="#a5452f"/>
+          <text x="426" y="205.5" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="7.5" letter-spacing="1.5" fill="#f1ece1">ESPRESSO</text>
+          <rect x="400" y="222" width="10" height="12" fill="#3a3a3a"/>
+          <rect x="442" y="222" width="10" height="12" fill="#3a3a3a"/>
+          <circle cx="426" cy="226" r="7" fill="#f1ece1" stroke="#3a3a3a" stroke-width="1.5"/>
+          <line x1="426" y1="226" x2="430" y2="222" stroke="#a5452f" stroke-width="1.5"/>
+        </g>
+        <!-- cup stack -->
+        <g id="cupStack"></g>
+        <text x="16" y="320" font-family="Outfit, sans-serif" font-size="10" fill="#e7b77a" opacity=".85">each cup = 10 cups made</text>
+      </svg>
+      <div class="bubble" id="bubble" aria-live="polite"><span class="who">Joann</span><span id="say">Hey! I'm Joann.</span></div>
+      <div class="queue" id="queue" aria-hidden="true"><span class="label" id="queueLbl">Laneway</span></div>
+    </section>
+
+    <!-- ======== PANEL ======== -->
+    <section class="panel" id="panel" aria-label="Today's plan"></section>
+  </div>
+
+  <div class="lower">
+    <section class="card">
+      <h3>The week so far</h3>
+      <div class="tablewrap" id="logWrap"></div>
+    </section>
+    <section class="card">
+      <h3>Show the maths</h3>
+      <pre class="maths" id="maths"></pre>
+      <p class="note">These are the same formulas as the 5-Day Challenge sheet in your Excel file. Base demand 200 cups, 30 fewer buyers per $1, and each cup costs $1 to make.</p>
+    </section>
+  </div>
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>
